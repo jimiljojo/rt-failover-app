@@ -1,0 +1,22 @@
+#%RAML 1.0
+baseUri: https://mocksvc.mulesoft.com/mocks/ec68e1a9-6da3-4b73-ab86-0b1bbb86baa4 # 
+title: RTF Failover App Demo
+
+
+/sample:
+  description: Returns some sample data
+  get:
+    description: Makes a call to http://jsonplaceholder.typicode.com/users
+    responses: 
+      200:
+        body: 
+          application/json:
+            example: !include examples/example.json
+/kill:
+  get:
+    description: Floods the JVM with vars consuming all the memory and throwing outofmemory exception
+    responses: 
+      200:
+        body: 
+          application/json:
+            example: {message: Generating OOM error...}
